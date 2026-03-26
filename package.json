@@ -1,0 +1,32 @@
+{
+  "name": "hanradio",
+  "version": "1.0.0",
+  "description": "Korean Internet Radio - KBS Classic FM & CBS Music FM",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "parkbongil",
+  "license": "ISC",
+  "volumio_info": {
+    "prettyName": "Han Radio",
+    "icon": "fa-music",
+    "plugin_type": "music_service",
+    "architectures": [
+      "amd64",
+      "armhf"
+    ],
+    "os": [
+      "bookworm"
+    ],
+    "details": "Korean Internet Radio streaming plugin. Listen to KBS Classic FM and CBS Music FM with live schedule information.",
+    "changelog": "1.0.0 initial release"
+  },
+  "engines": {
+    "node": ">=20",
+    "volumio": ">=4"
+  },
+  "dependencies": {
+    "kew": "0.7.0"
+  }
+}
