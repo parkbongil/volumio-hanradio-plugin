@@ -1,5 +1,6 @@
 # Volumio hanradio plugin
-KBS Classic FM 라디오와 CBS Music FM 라디오를 재생하는 플러그인
+KBS Classic FM 라디오와 CBS Music FM 라디오를 재생하는 플러그인  
+![Volumio hanradio plugin](./images/readme.png)
 
 ## 주요 기능
 - API를 파싱해서 스트리밍 주소, 프로그램명, 진행자, 앨범아트를 표시
