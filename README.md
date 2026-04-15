@@ -39,5 +39,5 @@ KBS Classic FM 라디오와 CBS Music FM 라디오를 재생하는 플러그인
 ## 변경 이력
 
 ### 1.0.1
-volumio 3.x 설치를 위해 package.json 에서 "node": ">=14.15.4" 로 변경
+- volumio 3.x 설치를 위해 package.json 에서 "node": ">=14.15.4" 로 변경
 
