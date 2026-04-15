@@ -34,5 +34,10 @@ KBS Classic FM 라디오와 CBS Music FM 라디오를 재생하는 플러그인
 2. WinSCP 등으로 접속하여 홈디렉토리(/home/volumio)에 hanradio 디렉토리 업로드
 3. Putty 등으로 접속하여 업로드한 hanradio 디렉토리로 이동
 4. volumio plugin install 명령어로 플러그인 설치
-5. 플러그인 관리메뉴 {volumio url}/plugin-manager에서 플러그인 활성화
+5. 플러그인 관리메뉴 {volumio url}/plugin-manager에서 플러그인 활성화  
+
+## 변경 이력
+
+### 1.0.1
+volumio 3.x 설치를 위해 package.json 에서 "node": ">=14.15.4" 로 변경
 
