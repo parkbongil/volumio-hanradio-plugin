@@ -2,7 +2,7 @@
 
 /**
  * Han Radio Plugin v1.0.0
- * Korean Internet Radio - KBS Classic FM & CBS Music FM
+ * Korean Internet Radio - KBS Classic FM, KBS Cool FM & CBS Music FM
  * Volumio Standard Pattern (function/prototype)
  */
 
@@ -45,6 +45,15 @@ function ControllerHanRadio(context) {
             streamApiUrl: 'https://cfpwwwapi.kbs.co.kr/api/v1/landing/live/channel_code/24',
             scheduleUrl: 'https://static.api.kbs.co.kr/mediafactory/v1/schedule/weekly?local_station_code=00&channel_code=24',
             defaultAlbumart: '/albumart?sourceicon=music_service/hanradio/images/kbs-classic-fm.png',
+            albumart: null,
+            programTitle: '',
+            programActor: ''
+        },
+        'kbs-cool-fm': {
+            name: 'KBS Cool FM',
+            streamApiUrl: 'https://cfpwwwapi.kbs.co.kr/api/v1/landing/live/channel_code/25',
+            scheduleUrl: 'https://static.api.kbs.co.kr/mediafactory/v1/schedule/weekly?local_station_code=00&channel_code=25',
+            defaultAlbumart: '/albumart?sourceicon=music_service/hanradio/images/kbs-cool-fm.png',
             albumart: null,
             programTitle: '',
             programActor: ''
@@ -203,7 +212,7 @@ ControllerHanRadio.prototype.getStreamUrl = function(channelKey) {
         return defer.promise;
     }
 
-    // KBS Classic FM: fetch stream URL from API
+    // KBS Classic FM / Cool FM: fetch stream URL from API
     self.httpGet(channel.streamApiUrl)
         .then(function(data) {
             // API response contains channel_item array with service_url
@@ -245,8 +254,8 @@ ControllerHanRadio.prototype.fetchSchedule = function(channelKey) {
             var currentHour = now.getHours();
             var currentMin = now.getMinutes();
 
-            if (channelKey === 'kbs-classic-fm') {
-                self.parseKbsSchedule(data, currentHour, currentMin);
+            if (channelKey === 'kbs-classic-fm' || channelKey === 'kbs-cool-fm') {
+                self.parseKbsSchedule(channelKey, data, currentHour, currentMin);
             } else if (channelKey === 'cbs-music-fm') {
                 self.parseCbsSchedule(data, currentHour, currentMin);
             }
@@ -261,9 +270,9 @@ ControllerHanRadio.prototype.fetchSchedule = function(channelKey) {
     return defer.promise;
 };
 
-ControllerHanRadio.prototype.parseKbsSchedule = function(data, currentHour, currentMin) {
+ControllerHanRadio.prototype.parseKbsSchedule = function(channelKey, data, currentHour, currentMin) {
     var self = this;
-    var channel = self.channels['kbs-classic-fm'];
+    var channel = self.channels[channelKey];
     var dayData = Array.isArray(data) ? data[0] : data;
     var dailySchedules = (dayData && Array.isArray(dayData.schedules)) ? dayData.schedules : [];
 
@@ -285,7 +294,7 @@ ControllerHanRadio.prototype.parseKbsSchedule = function(data, currentHour, curr
         var endTotal = endHour * 60 + endMin;
 
         if (currentTotal >= startTotal && currentTotal < endTotal) {
-            channel.programTitle = item.program_title || 'KBS Classic FM';
+            channel.programTitle = item.program_title || channel.name;
             channel.programActor = item.program_actor || '';
             channel.albumart = item.image_w || channel.defaultAlbumart;
 
@@ -295,7 +304,7 @@ ControllerHanRadio.prototype.parseKbsSchedule = function(data, currentHour, curr
     }
 
     // Fallback
-    channel.programTitle = 'KBS Classic FM';
+    channel.programTitle = channel.name;
     channel.programActor = '';
     channel.albumart = channel.defaultAlbumart;
 };
@@ -778,6 +787,15 @@ ControllerHanRadio.prototype.browseRoot = function() {
         icon: 'fa fa-music',
         uri: 'hanradio/kbs-classic-fm',
         albumart: '/albumart?sourceicon=music_service/hanradio/images/kbs-classic-fm.png'
+    });
+
+    items.push({
+        service: SERVICE_NAME,
+        type: 'mywebradio',
+        title: 'KBS Cool FM',
+        icon: 'fa fa-music',
+        uri: 'hanradio/kbs-cool-fm',
+        albumart: '/albumart?sourceicon=music_service/hanradio/images/kbs-cool-fm.png'
     });
 
     items.push({

@@ -1,6 +1,7 @@
 {
   "PLUGIN_NAME": "Han Radio",
   "KBS_CLASSIC_FM": "KBS Classic FM",
+  "KBS_COOL_FM": "KBS Cool FM",
   "CBS_MUSIC_FM": "CBS Music FM",
   "CONNECTING": "Connecting...",
   "STOPPED": "Stopped playback",

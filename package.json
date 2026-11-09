@@ -1,7 +1,7 @@
 {
   "name": "hanradio",
-  "version": "1.0.1",
-  "description": "Korean Internet Radio - KBS Classic FM & CBS Music FM",
+  "version": "1.0.2",
+  "description": "Korean Internet Radio - KBS Classic FM, KBS Cool FM & CBS Music FM",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -20,8 +20,8 @@
     "os": [
       "buster"
     ],
-    "details": "Korean Internet Radio streaming plugin. Listen to KBS Classic FM and CBS Music FM with live schedule information.",
-    "changelog": "1.0.0 initial release"
+    "details": "Korean Internet Radio streaming plugin. Listen to KBS Classic FM, KBS Cool FM and CBS Music FM with live schedule information.",
+    "changelog": "1.0.2 add KBS Cool FM"
   },
   "engines": {
     "node": ">=14.15.4",

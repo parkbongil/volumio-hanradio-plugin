@@ -1,5 +1,5 @@
 # Volumio hanradio plugin
-KBS Classic FM 라디오와 CBS Music FM 라디오를 재생하는 플러그인  
+KBS Classic FM, KBS Cool FM 라디오와 CBS Music FM 라디오를 재생하는 플러그인  
 ![Volumio hanradio plugin](./images/readme.png)
 
 ## 주요 기능
@@ -14,6 +14,13 @@ KBS Classic FM 라디오와 CBS Music FM 라디오를 재생하는 플러그인
   
 (편성표 URL)  
 [https://static.api.kbs.co.kr/mediafactory/v1/schedule/weekly?local_station_code=00&channel_code=24](https://static.api.kbs.co.kr/mediafactory/v1/schedule/weekly?local_station_code=00&channel_code=24)
+
+## KBS Cool FM API
+(스트리밍 URL)  
+[https://cfpwwwapi.kbs.co.kr/api/v1/landing/live/channel_code/25](https://cfpwwwapi.kbs.co.kr/api/v1/landing/live/channel_code/25)
+  
+(편성표 URL)  
+[https://static.api.kbs.co.kr/mediafactory/v1/schedule/weekly?local_station_code=00&channel_code=25](https://static.api.kbs.co.kr/mediafactory/v1/schedule/weekly?local_station_code=00&channel_code=25)
 
 ## CBS Music FM API
 (스트리밍 URL - 서울)  
@@ -41,3 +48,5 @@ KBS Classic FM 라디오와 CBS Music FM 라디오를 재생하는 플러그인
 ### 1.0.1
 - volumio 3.x 설치를 위해 package.json 에서 "node": ">=14.15.4" 로 변경
 
+### 1.0.2
+- KBS Cool FM 채널 추가
