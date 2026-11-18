@@ -6,7 +6,7 @@ KBS Classic FM, KBS Cool FM 라디오와 CBS Music FM 라디오를 재생하는 
 - API를 파싱해서 스트리밍 주소, 프로그램명, 진행자, 앨범아트를 표시
 - CBS 음악 FM은 서울방송보다 bitrate가 높은 부산방송 스트리밍 URL을 사용
 - 스트리밍 메타데이터에 bitrate, samplerate를 제공하지 않아서 실시간으로 계산해서 표시
-- 매 30분마다 편성표 API를 호출해서 프로그램명, 진행자, 앨범아트를 업데이트
+- 편성표 API를 호출해서 프로그램명, 진행자, 앨범아트를 업데이트
 
 ## KBS Classic FM API
 (스트리밍 URL)  
@@ -50,3 +50,6 @@ KBS Classic FM, KBS Cool FM 라디오와 CBS Music FM 라디오를 재생하는 
 
 ### 1.0.2
 - KBS Cool FM 채널 추가
+
+### 1.0.3
+- 채널 리스트에 로고이미지가 아닌 편성표의 앨범아트 표시
